@@ -12,9 +12,12 @@
     "test": "echo 'Test passed!'"
   },
   "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.23.12",
     "next": "15.3.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
+    "tailwind-variants": "^2.1.0",
     "zustand": "^5.0.6"
   },
   "devDependencies": {
