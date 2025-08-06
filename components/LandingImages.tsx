@@ -2,8 +2,8 @@ import Image from 'next/image'
 
 export default function LandingImages() {
   return (
-    <div className="my-20 flex flex-col gap-20 justify-center items-center">
-      <div className="relative w-full h-[400px]">
+    <div className="w-full my-20 flex flex-col gap-20 justify-center items-center px-20 md:px-10">
+      <div className="relative w-full h-[200px] md:h-[400px]">
         <Image
           src="/images/landing1.jpg"
           alt="랜딩 이미지1"
@@ -13,7 +13,7 @@ export default function LandingImages() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/100 via-transparent to-white/100 pointer-events-none rounded-[16px] " />
       </div>
 
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-[200px] md:h-[400px]">
         <Image
           src="/images/landing2.jpg"
           alt="랜딩 이미지2"
@@ -23,7 +23,7 @@ export default function LandingImages() {
         <div className="absolute inset-0 bg-gradient-to-r from-white/100 via-transparent to-white/100 pointer-events-none rounded-[16px]" />
       </div>
 
-      <div className="relative w-full h-[400px]">
+      <div className="relative w-full h-[200px] md:h-[400px]">
         <Image
           src="/images/landing3.jpg"
           alt="랜딩 이미지3"
