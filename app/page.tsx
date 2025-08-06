@@ -1,3 +1,9 @@
+import LandingImages from '@/components/LandingImages'
+
 export default function Home() {
-  return <div>홈</div>
+  return (
+    <div>
+      <LandingImages />
+    </div>
+  )
 }
