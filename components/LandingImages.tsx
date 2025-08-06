@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 export default function LandingImages() {
   const items = [
     { src: '/images/landing1.jpg', text: '누구나 시작할 수 있어요' },
-    { src: '/images/landing3.jpg', text: '건강한 하루를 만들어봐요' },
+    { src: '/images/landing3.jpg', text: '건강한 하루를 만들어보세요' },
     { src: '/images/landing2.jpg', text: '지금이 바로 RunTime!' },
   ]
 
@@ -28,12 +28,12 @@ export default function LandingImages() {
             className="object-cover rounded-[16px] select-none pointer-events-none"
             draggable={false}
           />
-          <div className="absolute md:top-1/2 top-1/3 translate-y-[70%] md:translate-x-[-20%] md:translate-y-[40%] inset-0 z-20 flex justify-center">
-            <h2 className="text-white text-[30px] md:text-[50px] font-bold text-center drop-shadow-lg">
+          <div className="absolute md:top-1/2 top-1/3 translate-y-[70%] md:translate-y-[40%] lg:translate-x-[-20%] lg:translate-y-[40%] inset-0 z-20 flex justify-center">
+            <h2 className="text-white text-[25px] md:text-[50px] font-bold text-center drop-shadow-lg">
               {item.text}
             </h2>
           </div>
-          <div className="w-full absolute inset-0 bg-gradient-to-r from-white/100 via-transparent to-white/100 pointer-events-none rounded-[16px]" />
+          <div className="w-full absolute inset-0 bg-gradient-to-r from-white/100 via-transparent to-white/100 pointer-events-none" />
         </motion.div>
       ))}
     </div>
