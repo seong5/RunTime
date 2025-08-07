@@ -14,6 +14,7 @@ export default function Home() {
           rounded="full"
           text="lg"
           onClick={() => console.log('달리기페이지')}
+          className="active:scale-95 transition-transform duration-150"
         >
           Run Time!
         </Button>
