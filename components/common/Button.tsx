@@ -3,6 +3,8 @@ import {
   BUTTON_VARIANTS,
   BUTTON_SIZES,
   BUTTON_RADIUS,
+  BUTTON_TEXT,
+  buttonText,
   buttonVariants,
   buttonSize,
   buttonRadius,
@@ -15,6 +17,7 @@ interface ButtonProps {
   size?: buttonSize
   rounded?: buttonRadius
   className?: string
+  text?: buttonText
   onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void
 }
 
@@ -22,6 +25,7 @@ export default function Button({
   children,
   variant = 'orange',
   size = 'md',
+  text = 'md',
   rounded = 'md',
   className = '',
   onClick,
@@ -32,6 +36,7 @@ export default function Button({
         BUTTON_VARIANTS[variant],
         BUTTON_SIZES[size],
         BUTTON_RADIUS[rounded],
+        BUTTON_TEXT[text],
         className
       )}
       onClick={onClick}

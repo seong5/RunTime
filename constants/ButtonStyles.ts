@@ -22,3 +22,11 @@ export const BUTTON_RADIUS: Record<buttonRadius, string> = {
   lg: 'rounded-[20px]',
   full: 'rounded-full',
 }
+
+export type buttonText = 'sm' | 'md' | 'lg' | 'xl'
+export const BUTTON_TEXT: Record<buttonText, string> = {
+  sm: 'text-[16px]',
+  md: 'text-[20px] font-semibold',
+  lg: 'text-[24px] font-bold',
+  xl: 'text-[28px] font-bold',
+}
