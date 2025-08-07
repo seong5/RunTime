@@ -7,8 +7,9 @@ export const BUTTON_VARIANTS: Record<buttonVariants, string> = {
   navy: cn('bg-navy', 'text-white', 'cursor-pointer'),
 }
 
-export type buttonSize = 'sm' | 'md' | 'lg'
+export type buttonSize = 'xs' | 'sm' | 'md' | 'lg'
 export const BUTTON_SIZES: Record<buttonSize, string> = {
+  xs: 'w-full max-w-50 h-20',
   sm: 'w-full max-w-70 h-30',
   md: 'w-full max-w-100 h-30',
   lg: 'w-full max-w-140 h-40',

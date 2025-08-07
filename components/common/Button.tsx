@@ -1,3 +1,5 @@
+'use client'
+
 import { ReactNode } from 'react'
 import {
   BUTTON_VARIANTS,
@@ -24,7 +26,7 @@ interface ButtonProps {
 export default function Button({
   children,
   variant = 'orange',
-  size = 'md',
+  size = 'sm',
   text = 'md',
   rounded = 'md',
   className = '',
