@@ -1,3 +1,9 @@
+import WeatherCast from './_components/WeatherCast'
+
 export default function Weather() {
-  return <div>날씨페이지</div>
+  return (
+    <div>
+      <WeatherCast />
+    </div>
+  )
 }
