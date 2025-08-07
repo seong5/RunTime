@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <LandingImages />
-      <Button variant="orange" size="md">
+      <Button variant="orange" size="sm" rounded="lg">
         START!
       </Button>
     </div>
