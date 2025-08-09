@@ -38,22 +38,22 @@ const PTY_MAP: Record<string, string> = {
 
 function degToCompass(deg: number) {
   const dirs = [
-    'N',
-    'NNE',
-    'NE',
-    'ENE',
-    'E',
-    'ESE',
-    'SE',
-    'SSE',
-    'S',
-    'SSW',
-    'SW',
-    'WSW',
-    'W',
-    'WNW',
-    'NW',
-    'NNW',
+    '북',
+    '북북동',
+    '북동',
+    '동북동',
+    '동',
+    '동남동',
+    '남동',
+    '남남동',
+    '남',
+    '남남서',
+    '남서',
+    '서남서',
+    '서',
+    '서북서',
+    '북서',
+    '북북서',
   ]
   return dirs[Math.round(deg / 22.5) % 16]
 }
@@ -124,39 +124,39 @@ export default function WeatherCast() {
   if (!parsed) return <div>불러오는 중…</div>
 
   return (
-    <div className="p-4 space-y-3 bg-blue-100">
-      <h2 className="text-[32px] font-bold">오늘의 날씨</h2>
-      <p className="text-[13px] text-gray-500">기준: {parsed.base}</p>
+    <div className="p-5">
+      <h2 className="text-[22px] md:text-[32px] font-bold">오늘의 날씨</h2>
+      <p className="text-[10px] md:text-[13px] text-gray-500">{parsed.base}</p>
 
       <div className="flex flex-col justify-center items-center">
-        <div className="text-gray-500 font-semibold text-[40px]">현재 기온</div>
-        <div className="text-[40px] font-semibold">
+        <div className="text-gray-500 font-semibold text-[20px] md:text-[40px]">현재 기온</div>
+        <div className="text-[30px] md:text-[60px] font-semibold">
           {parsed.temp ?? '-'}
-          <span className="text-[25px]">°C</span>
+          <span className="text-[20px] md:text-[25px]">°C</span>
         </div>
-        <div className="flex flex-row mt-10 gap-10">
-          <div className="rounded-2xl border p-4">
-            <div className="text-gray-500 text-sm">습도</div>
-            <div className="text-2xl font-semibold">
+        <div className="flex flex-row w-full mt-10 gap-10 md:gap-20">
+          <div className="rounded-2xl bg-green-100 w-full text-center text-green-600 p-5">
+            <div className="text-green-700 text-[20px] md:text-[30px]">습도</div>
+            <div className="text-[30px] md:text-[50px] font-semibold">
               {parsed.humidity ?? '-'}
-              <span className="text-base">%</span>
+              <span className="text-[20px]">%</span>
             </div>
           </div>
 
-          <div className="rounded-2xl border p-4">
-            <div className="text-gray-500 text-sm">강수(1h)</div>
-            <div className="text-2xl font-semibold">
+          <div className="rounded-2xl w-full text-center bg-blue-100 p-5">
+            <div className="text-blue-500 text-[20px] md:text-[30px]">강수</div>
+            <div className="text-[30px] md:text-[50px] text-blue-500 font-semibold">
               {parsed.rain1h ?? 0}
-              <span className="text-base"> mm</span>
+              <span className="text-base">mm</span>
             </div>
             <div className="text-xs text-gray-500 mt-1">{parsed.precipType}</div>
           </div>
 
-          <div className="rounded-2xl border p-4">
-            <div className="text-gray-500 text-sm">바람</div>
-            <div className="text-2xl font-semibold">
+          <div className="rounded-2xl bg-yellow-100 w-full text-center p-5">
+            <div className="text-yellow-500 text-[20px] md:text-[30px]">바람</div>
+            <div className="text-[30px] md:text-[50px] font-semibold text-yellow-500">
               {parsed.windSpeed ?? '-'}
-              <span className="text-base"> m/s</span>
+              <span className="text-base text-yellow-500">m/s</span>
             </div>
             <div className="text-xs text-gray-500 mt-1">
               {parsed.windDirDeg != null ? `${parsed.windDirText} (${parsed.windDirDeg}°)` : '-'}
