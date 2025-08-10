@@ -73,14 +73,25 @@ export default function WeatherCast() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    ;(async () => {
-      try {
-        const res = await api.get<WeatherAPI>('/api/weather', { params: { nx: 55, ny: 127 } })
-        setRaw(res.data)
-      } catch (e: any) {
-        setError(e?.response?.data?.error || e?.message || '요청 실패')
+    navigator.geolocation.getCurrentPosition(
+      async pos => {
+        try {
+          const lat = pos.coords.latitude
+          const lon = pos.coords.longitude
+
+          // 위경도를 그대로 API에 전달
+          const res = await api.get<WeatherAPI>('/api/weather', {
+            params: { lat, lon },
+          })
+          setRaw(res.data)
+        } catch (e: any) {
+          setError(e?.response?.data?.error || e?.message || '요청 실패')
+        }
+      },
+      err => {
+        setError('위치 정보를 가져올 수 없습니다: ' + err.message)
       }
-    })()
+    )
   }, [])
 
   const parsed = useMemo(() => {
