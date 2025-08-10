@@ -2,6 +2,8 @@ export {}
 
 declare global {
   namespace kakao.maps {
+    function load(callback: () => void): void
+
     class LatLng {
       constructor(lat: number, lng: number)
     }
@@ -16,9 +18,7 @@ declare global {
     }
 
     namespace services {
-      const Status: {
-        OK: string
-      }
+      const Status: { OK: string }
 
       type Coord2AddressResult = {
         address?: { address_name: string }
