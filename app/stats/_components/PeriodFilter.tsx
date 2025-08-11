@@ -9,7 +9,7 @@ interface Props {
 }
 
 export default function PeriodFilter({ defaultValue = '주', onChange }: Props) {
-  const [selected, setSelected] = useState<PeriodType>(defaultValue)
+  const [selected, setSelected] = useState<PeriodType>('주')
   const options: { label: string; value: PeriodType }[] = [
     { label: '주', value: '주' },
     { label: '월', value: '월' },
@@ -23,12 +23,12 @@ export default function PeriodFilter({ defaultValue = '주', onChange }: Props) 
   }
 
   return (
-    <div className="flex gap-5 mt-10">
+    <div className="flex gap-5 mt-10 justify-center items-center">
       {options.map(opt => (
         <button
           key={opt.value}
           onClick={() => handleClick(opt.value)}
-          className={`px-4 py-2 rounded-[16px] border ${
+          className={`text-center w-[70px] md:h-[50px] h-[50px] text-[19px] md:text-[25px] md:w-[100px] px-4 py-2 rounded-[16px] border border-gray-300 ${
             selected === opt.value ? 'bg-orange text-white' : 'bg-white text-gray-950'
           }`}
         >
