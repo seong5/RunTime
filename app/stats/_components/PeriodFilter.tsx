@@ -29,7 +29,7 @@ export default function PeriodFilter({ defaultValue = '주', onChange }: Props) 
           key={opt.value}
           onClick={() => handleClick(opt.value)}
           className={`text-center w-[70px] h-[50px] font-semibold text-[15px] md:text-[25px] md:w-[100px] px-3 rounded-[16px] border border-gray-300 ${
-            selected === opt.value ? 'bg-orange text-white' : 'bg-white text-gray-950'
+            selected === opt.value ? 'bg-orange text-white' : 'bg-white text-gray-200'
           }`}
         >
           {opt.label}
