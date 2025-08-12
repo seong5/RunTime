@@ -1,15 +1,22 @@
+'use client'
 import { formatKoreanDate } from '@/utils/dateUtils'
+import { useRouter } from 'next/navigation'
 
 type RecentCardProps = {
+  id: number
   distance: number
   pace: string
   time: string
   date: string
 }
 
-export default function RecentCard({ distance, pace, time, date }: RecentCardProps) {
+export default function RecentCard({ distance, pace, time, date, id }: RecentCardProps) {
+  const router = useRouter()
   return (
-    <article className="rounded-[16px] bg-gray-100 p-4 mb-5">
+    <article
+      className="rounded-[16px] bg-gray-100 p-4 mb-5 cursor-pointer"
+      onClick={() => router.push(`/stats/${id}`)}
+    >
       <div className="text-[20px] md:text-[25px] font-bold my-2">{formatKoreanDate(date)}</div>
       <div className="w-[150px] md:w-[200px] h-[150px] md:h-[200px] bg-white rounded-[16px] flex items-center justify-center">
         이미지
