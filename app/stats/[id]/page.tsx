@@ -15,22 +15,22 @@ export default async function DetailPage({ params }: Props) {
         {formatKoreanDate(record.date)}
       </h1>
       <div className="mt-4">
-        <div className="text-orange text-[15px] md:text-[20px] font-semibold">
+        <div className="text-gray-400 text-[15px] md:text-[20px] font-semibold">
           달린 거리{' '}
           <div className="text-gray-950 text-[30px] md:text-[40px] font-bold">
             {record.distance}
           </div>
         </div>
         <div className="flex flex-row gap-10 md:gap-20">
-          <div className="text-orange font-semibold text-[15px] md:text-[20px] text-center">
+          <div className="text-gray-400 font-semibold text-[15px] md:text-[20px] text-center">
             평균 페이스{' '}
             <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.pace}</div>
           </div>
-          <div className="text-orange font-semibold text-center text-[15px] md:text-[20px] ">
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
             시간{' '}
             <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.time}</div>
           </div>
-          <div className="text-orange font-semibold text-center text-[15px] md:text-[20px] ">
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
             칼로리{' '}
             <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
               {record.calories}
