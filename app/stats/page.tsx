@@ -4,6 +4,7 @@ import { useState } from 'react'
 import PeriodFilter, { type PeriodType } from './_components/PeriodFilter'
 import RunningAverage from './_components/RunningAverage'
 import AverageChart from './_components/AverageChart'
+import RecentRunning from './_components/RecentRunning'
 
 export default function Stats() {
   const [period, setPeriod] = useState<PeriodType>('주')
@@ -13,7 +14,7 @@ export default function Stats() {
       <PeriodFilter value={period} onChange={setPeriod} />
       <RunningAverage period={period} />
       <AverageChart period={period} />
-      <div>최근활동</div>
+      <RecentRunning />
     </section>
   )
 }

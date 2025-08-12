@@ -81,6 +81,7 @@ export default function AverageChart({ period }: { period: PeriodType }) {
               domain={['auto', 'auto']}
             />
             <Tooltip
+              contentStyle={{ borderRadius: '20px' }}
               formatter={(value: any, name: string) => {
                 if (name === 'distance') return [`${value} km`, '거리']
                 if (name === 'paceSecPerKm') return [fmtPace(value as number), '평균 페이스']
