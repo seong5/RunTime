@@ -17,11 +17,11 @@ export default async function DetailPage({ params }: Props) {
       <div className="mt-4">
         <div className="text-gray-400 text-[15px] md:text-[20px] font-semibold">
           달린 거리{' '}
-          <div className="text-gray-950 text-[30px] md:text-[40px] font-bold">
+          <div className="text-gray-950 text-[30px] md:text-[40px] pb-4 font-bold border-b border-gray-300">
             {record.distance}
           </div>
         </div>
-        <div className="flex flex-row gap-10 md:gap-20">
+        <div className="mt-4 grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-20">
           <div className="text-gray-400 font-semibold text-[15px] md:text-[20px] text-center">
             평균 페이스{' '}
             <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.pace}</div>
@@ -34,6 +34,12 @@ export default async function DetailPage({ params }: Props) {
             칼로리{' '}
             <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
               {record.calories}
+            </div>
+          </div>
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
+            케이던스{' '}
+            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
+              {record.cadence}
             </div>
           </div>
         </div>
