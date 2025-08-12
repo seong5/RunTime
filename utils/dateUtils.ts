@@ -53,3 +53,9 @@ export function getRange(period: PeriodType, today = new Date()) {
   start.setHours(0, 0, 0, 0)
   return { start, end }
 }
+
+// 년 월 일 로 바꾸는 함수
+export function formatKoreanDate(dateStr: string) {
+  const date = new Date(dateStr)
+  return `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`
+}
