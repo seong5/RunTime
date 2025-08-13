@@ -53,7 +53,7 @@ export default function Polyline({
   isSdkReady,
   zoom = 15,
 }: Props) {
-  // Thumbnail (SVG) 모드
+  // Thumbnail
   if (variant === 'thumbnail') {
     const { points, start, end } = useMemo(() => {
       if (!path?.length) return { points: '', start: null as any, end: null as any }
@@ -98,7 +98,7 @@ export default function Polyline({
             <polyline
               points={points}
               fill="none"
-              stroke={strokeColor || '#7c3aed'}
+              stroke={strokeColor || '#d97706'}
               strokeWidth={strokeWidth}
               strokeLinecap="round"
               strokeLinejoin="round"
@@ -126,7 +126,7 @@ export default function Polyline({
     )
   }
 
-  // Map (Google Maps) 모드
+  // Map
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(() => {

@@ -9,7 +9,7 @@ type RecentCardProps = {
   pace: string
   time: string
   date: string
-  gps: LatLng[] // 추가: 경로 데이터
+  gps: LatLng[] // 경로 데이터
 }
 
 export default function RecentCard({ distance, pace, time, date, id, gps }: RecentCardProps) {
@@ -22,7 +22,7 @@ export default function RecentCard({ distance, pace, time, date, id, gps }: Rece
     >
       <div className="text-[20px] md:text-[25px] font-bold my-2">{formatKoreanDate(date)}</div>
 
-      {/* 여기서 썸네일 렌더링 */}
+      {/* 썸네일 렌더링 */}
       <div className="w-[150px] md:w-[200px] h-[150px] md:h-[200px] flex items-center justify-center">
         <Polyline
           variant="thumbnail"
@@ -31,9 +31,9 @@ export default function RecentCard({ distance, pace, time, date, id, gps }: Rece
           height={200}
           padding={10}
           strokeWidth={5}
-          strokeColor="#7c3aed"
+          strokeColor="#d97706"
           showEndpoints={false}
-          className="rounded-[16px] bg-white"
+          className="rounded-[16px] bg-white w-[150px] md:w-[200px] h-[150px] md:h-[200px]"
         />
       </div>
 
