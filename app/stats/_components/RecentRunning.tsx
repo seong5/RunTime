@@ -17,6 +17,7 @@ export default function RecentRunning() {
           pace={r.pace}
           time={r.time}
           date={r.date}
+          gps={r.gps}
         />
       ))}
     </section>
