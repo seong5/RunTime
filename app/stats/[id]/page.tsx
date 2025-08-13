@@ -1,19 +1,31 @@
 import { notFound } from 'next/navigation'
 import { runningRecords } from '@/mocks/runningRecord'
 import { formatKoreanDate } from '@/utils/dateUtils'
+import RunDistance, { type LatLng } from '../_components/RunDistance'
 
-type Props = { params: Promise<{ id: string }> }
+type Props = { params: { id: string } }
 
-export default async function DetailPage({ params }: Props) {
-  const { id } = await params
+export default function DetailPage({ params }: Props) {
+  const { id } = params
   const record = runningRecords.find(r => r.id === Number(id))
   if (!record) return notFound()
+
+  // 경로는 예시
+  const path: LatLng[] = [
+    { lat: 37.5665, lng: 126.978 },
+    { lat: 37.5652, lng: 126.9895 },
+    { lat: 37.561, lng: 126.991 },
+  ]
+
+  const km = parseFloat(String(record.distance).replace(/[^\d.]/g, '')) || 0
+  const overrideMeters = Math.round(km * 1000)
 
   return (
     <main className="px-[20px] md:px-[30px] my-4">
       <h1 className="text-[20px] md:text-[25px] text-green font-semibold">
         {formatKoreanDate(record.date)}
       </h1>
+
       <div className="mt-4">
         <div className="text-gray-400 text-[15px] md:text-[20px] font-semibold">
           달린 거리{' '}
@@ -21,27 +33,14 @@ export default async function DetailPage({ params }: Props) {
             {record.distance}
           </div>
         </div>
-        <div className="mt-4 grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-20">
-          <div className="text-gray-400 font-semibold text-[15px] md:text-[20px] text-center">
-            평균 페이스{' '}
-            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.pace}</div>
-          </div>
-          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
-            시간{' '}
-            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.time}</div>
-          </div>
-          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
-            칼로리{' '}
-            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
-              {record.calories}
-            </div>
-          </div>
-          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
-            케이던스{' '}
-            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
-              {record.cadence}
-            </div>
-          </div>
+
+        <div className="mt-6">
+          <RunDistance
+            path={path}
+            height={380}
+            showStartEndMarkers
+            distanceMetersOverride={overrideMeters}
+          />
         </div>
       </div>
     </main>

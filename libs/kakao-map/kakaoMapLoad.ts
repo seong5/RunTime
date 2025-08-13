@@ -21,7 +21,8 @@ export function KakaoMapLoad(opts: LoadOptions = {}): Promise<void> {
 
   _loaded = new Promise((resolve, reject) => {
     const s = document.createElement('script')
-    s.src = `//dapi.kakao.com/v2/maps/sdk.js?${query.toString()}`
+    const url = `https://dapi.kakao.com/v2/maps/sdk.js?appkey=${KAKAOMAP_API_KEY}&autoload=false&libraries=services`
+    s.src = url
     s.async = true
     if (nonce) s.nonce = nonce
 
