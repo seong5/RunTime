@@ -4,13 +4,10 @@ import { formatKoreanDate } from '@/utils/dateUtils'
 
 type Props = { params: { id: string } }
 
-export default function DetailPage({ params }: Props) {
-  const { id } = params
+export default async function DetailPage({ params }: Props) {
+  const { id } = await params
   const record = runningRecords.find(r => r.id === Number(id))
   if (!record) return notFound()
-
-  const km = parseFloat(String(record.distance).replace(/[^\d.]/g, '')) || 0
-  const overrideMeters = Math.round(km * 1000)
 
   return (
     <main className="px-[20px] md:px-[30px] my-4">
@@ -25,7 +22,30 @@ export default function DetailPage({ params }: Props) {
             {record.distance}
           </div>
         </div>
+        <div className="mt-6 grid grid-cols-2 gap-5 md:grid-cols-4 md:gap-20">
+          <div className="text-gray-400 font-semibold text-[15px] md:text-[20px] text-center">
+            평균 페이스{' '}
+            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.pace}</div>
+          </div>
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
+            시간{' '}
+            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">{record.time}</div>
+          </div>
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
+            칼로리{' '}
+            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
+              {record.calories}
+            </div>
+          </div>
+          <div className="text-gray-400 font-semibold text-center text-[15px] md:text-[20px] ">
+            케이던스{' '}
+            <div className="text-gray-950 text-[20px] md:text-[25px] font-bold">
+              {record.cadence}
+            </div>
+          </div>
+        </div>
       </div>
+      <div className="mt-6"></div>
     </main>
   )
 }
