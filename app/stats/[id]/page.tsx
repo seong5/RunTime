@@ -1,7 +1,6 @@
 import { notFound } from 'next/navigation'
 import { runningRecords } from '@/mocks/runningRecord'
 import { formatKoreanDate } from '@/utils/dateUtils'
-import RunDistance, { type LatLng } from '../_components/RunDistance'
 
 type Props = { params: { id: string } }
 
@@ -9,13 +8,6 @@ export default function DetailPage({ params }: Props) {
   const { id } = params
   const record = runningRecords.find(r => r.id === Number(id))
   if (!record) return notFound()
-
-  // 경로는 예시
-  const path: LatLng[] = [
-    { lat: 37.5665, lng: 126.978 },
-    { lat: 37.5652, lng: 126.9895 },
-    { lat: 37.561, lng: 126.991 },
-  ]
 
   const km = parseFloat(String(record.distance).replace(/[^\d.]/g, '')) || 0
   const overrideMeters = Math.round(km * 1000)
@@ -32,15 +24,6 @@ export default function DetailPage({ params }: Props) {
           <div className="text-gray-950 text-[30px] md:text-[40px] pb-4 font-bold border-b border-gray-300">
             {record.distance}
           </div>
-        </div>
-
-        <div className="mt-6">
-          <RunDistance
-            path={path}
-            height={380}
-            showStartEndMarkers
-            distanceMetersOverride={overrideMeters}
-          />
         </div>
       </div>
     </main>
