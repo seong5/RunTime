@@ -18,7 +18,7 @@ export default async function ChallengeDetailPage({ params }: Props) {
         <img src={challenge.imageUrl} alt={challenge.name} className="rounded-[16px] w-full" />
       )}
       <p className="text-[20px] md:text-[30px] font-semibold">{challenge.distance} km</p>
-      <p className="text-[20px] md:text-[30px] font-semibold">{challenge.success}</p>
+      <p className="text-[20px] md:text-[30px] font-semibold">{challenge.status}</p>
     </main>
   )
 }

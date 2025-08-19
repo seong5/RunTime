@@ -20,7 +20,7 @@ export default function ChallengeCard({ challenge }: Props) {
         <div className="text-white">
           <div className="text-[20px] md:text-[45px] font-bold my-1 md:my-2">{challenge.name}</div>
           <div className="text-[15px] md:text-[25px] font-semibold">{challenge.distance}km</div>
-          <div className="text-[15px] md:text-[25px] font-semibold">{challenge.success}</div>
+          <div className="text-[15px] md:text-[25px] font-semibold">{challenge.status}</div>
         </div>
       </div>
     </Link>
