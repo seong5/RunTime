@@ -2,6 +2,7 @@
 
 import ChallengesCard from './_components/ChallengesCard'
 import SearchChallenges from './_components/SearchChallenges'
+import ChallengesFilter from './_components/ChallengesFilter'
 import { challenges } from '@/mocks/challenges'
 import { useState } from 'react'
 
@@ -15,6 +16,7 @@ export default function Challenges() {
   return (
     <>
       <SearchChallenges value={q} onChange={setQ} onSearch={v => setKeyword(v)} />
+      <ChallengesFilter />
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 p-4">
         {filtered.map(challenge => (
           <ChallengesCard key={challenge.id} challenge={challenge} />

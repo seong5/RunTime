@@ -6,7 +6,7 @@ export type Challenges = {
   imageUrl: string
   name: string
   distance: number
-  status: string
+  status: 'Clear' | 'NotYet'
 }
 
 export const challenges: Challenges[] = [
