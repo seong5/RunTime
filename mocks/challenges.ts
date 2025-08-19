@@ -1,4 +1,6 @@
 // 챌린지 페이지에서 사용될 mockData
+export type StatusFilter = 'All' | 'Clear' | 'NotYet'
+
 export type Challenges = {
   id: number
   imageUrl: string
