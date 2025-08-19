@@ -1,6 +1,5 @@
 import { runningRecords } from '@/mocks/runningRecord'
 import RecentCard from './RecentCard'
-import Link from 'next/link'
 
 export default function RecentRunning() {
   const sorted = [...runningRecords].sort(

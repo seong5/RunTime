@@ -1,12 +1,16 @@
+import { challenges } from '@/mocks/challenges'
+
 export default function ChallengesCard() {
   return (
     <section>
-      <div>챌린지이름</div>
-      <div>
-        <div>챌린지이미지</div>
-        <div>챌린지예상거리</div>
-        <div>챌린지성공여부</div>
-      </div>
+      {challenges.map(challenge => (
+        <div key={challenge.id}>
+          <div>{challenge.name}</div>
+          <div>챌린지이미지</div>
+          <div>예상거리: {challenge.distance}km</div>
+          <div>성공여부: {challenge.success}</div>
+        </div>
+      ))}
     </section>
   )
 }
