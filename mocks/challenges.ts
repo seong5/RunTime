@@ -6,4 +6,6 @@ export type Challenges = {
   success: string
 }
 
-export const challenges: Challenges[] = [{ id: 1, name: '댕댕이런', distance: 8, success: 'yes' }]
+export const challenges: Challenges[] = [
+  { id: 1, name: '종로 댕댕이런', distance: 8, success: 'yes' },
+]
