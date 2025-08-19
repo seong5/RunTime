@@ -1,3 +1,9 @@
+import ChallengesCard from './_components/ChallengesCard'
+
 export default function Challenges() {
-  return <div>챌린지 홈</div>
+  return (
+    <div>
+      <ChallengesCard />
+    </div>
+  )
 }
