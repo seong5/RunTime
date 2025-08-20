@@ -2,6 +2,7 @@
 
 import { ReactNode, useRef, useState } from 'react'
 import { cn } from '@/utils/cn'
+import { useClickOutside } from '@/hooks/useClickOutside'
 
 type DropDownItem = {
   text: string
@@ -18,6 +19,8 @@ type DropDownProps = {
 export default function DropDown({ trigger, items, position = 'bottom' }: DropDownProps) {
   const [isOpen, setIsOpen] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
+
+  useClickOutside(dropdownRef, () => setIsOpen(false))
 
   const buttonClass = cn(
     'cursor-pointer hover:bg-gray-300 hover:rounded-[8px] w-full min-h-[55px] txt-16_M'
