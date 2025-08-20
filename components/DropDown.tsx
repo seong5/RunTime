@@ -35,7 +35,7 @@ export default function DropDown({ trigger, items, position = 'bottom' }: DropDo
             position === 'left'
               ? 'top-1/2 right-full mr-2 -translate-y-1/5'
               : 'top-full left-1/2 mt-2 -translate-x-1/2',
-            'flex w-[95px] flex-col justify-center rounded-[8px] border border-gray-50 bg-white text-gray-950 md:h-auto md:w-[103px] lg:w-[95px]'
+            'flex w-[95px] flex-col justify-center shadow-md rounded-[8px] border border-gray-50 bg-white text-gray-950 md:h-auto md:w-[103px] lg:w-[95px]'
           )}
         >
           {items.map(({ text, onClick, danger }, idx) => (

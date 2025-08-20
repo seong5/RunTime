@@ -1,34 +1,43 @@
 'use client'
 
+import { useState } from 'react'
 import ChallengesCard from './_components/ChallengesCard'
 import SearchChallenges from './_components/SearchChallenges'
-import { challenges } from '@/mocks/challenges'
-import { useState } from 'react'
+import { challenges, type Challenges as ChallengeType } from '@/mocks/challenges'
 import DropDown from '@/components/DropDown'
 import Icon from '@/components/Icon'
+
+type StatusFilter = 'All' | 'Clear' | 'NotYet'
 
 export default function Challenges() {
   const [q, setQ] = useState('')
   const [keyword, setKeyword] = useState('')
-  const filtered = challenges.filter(ch =>
-    keyword ? ch.name.toLowerCase().includes(keyword.toLocaleLowerCase()) : true
-  )
+  const [status, setStatus] = useState<StatusFilter>('All')
+
+  const filtered = challenges.filter(ch => {
+    const byKeyword = keyword ? ch.name.toLowerCase().includes(keyword.toLowerCase()) : true
+    const byStatus = status === 'All' ? true : ch.status === status
+    return byKeyword && byStatus
+  })
 
   return (
     <main>
-      <SearchChallenges value={q} onChange={setQ} onSearch={v => setKeyword(v)} />
-      <div className="mx-4 border border-gray-300 w-[100px] rounded-[16px] p-2">
+      <SearchChallenges value={q} onChange={setQ} onSearch={setKeyword} />
+      <div className="mx-4 w-[90px] rounded-[16px]">
         <DropDown
           trigger={
-            <div className="flex flex-row gap-2">
+            <div className="flex items-center justify-between rounded-[16px] border border-gray-300 px-3 py-2 bg-white">
+              <p className="text-sm">
+                {status === 'All' ? '전체' : status === 'Clear' ? '완료' : '미완료'}
+              </p>
               <Icon icon="ChevronDown" />
-              <p>필터</p>
             </div>
           }
           position="bottom"
           items={[
-            { text: '완료', onClick: () => console.log('필터all') },
-            { text: '미완료', onClick: () => console.log('필터notyet') },
+            { text: '전체', onClick: () => setStatus('All') },
+            { text: '완료', onClick: () => setStatus('Clear') },
+            { text: '미완료', onClick: () => setStatus('NotYet') },
           ]}
         />
       </div>
@@ -37,7 +46,7 @@ export default function Challenges() {
           <ChallengesCard key={challenge.id} challenge={challenge} />
         ))}
         {filtered.length === 0 && (
-          <div className="col-span-full text-center text-gray-500 py-10">검색 결과가 없습니다.</div>
+          <div className="col-span-full py-10 text-center text-gray-500">검색 결과가 없습니다.</div>
         )}
       </div>
     </main>

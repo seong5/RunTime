@@ -11,6 +11,12 @@ body {
   font-family: system-ui, sans-serif;
 }
 
+@layer utilities {
+  .card-shadow {
+    box-shadow: 0 4px 24px 0 #9cb4ca33;
+  }
+}
+
 @theme {
   --color-orange: #d97706;
   --color-navy: #1c1f2a;
